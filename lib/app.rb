@@ -3,7 +3,7 @@ require 'rest-client'
 require_relative 'candidate'
 
 get '/' do
-
-  "Quantum Sprinkles, Total: #{Candidate.total}"
+  @candidate_count = Candidate.total
+  erb :index
 end
 

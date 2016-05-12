@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quantum Sprinkles!</title>
+
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Custom Theme Style -->
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-sm">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>QS !</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.html">Candidates By Region</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i> Candidate List <span class="fa fa-chevron-down"></span></a>
+                  </li>
+                  <li><a><i class="fa fa-bar-chart-o"></i> Reports <span class="fa fa-chevron-down"></span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+			
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+
+          <div class="nav_menu">
+            <nav class="" role="navigation">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt="">John Doe
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="javascript:;">  Profile</a>
+                    </li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    </li>
+                  </ul>
+                </li>
+
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+        <!-- /top navigation -->
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+          <!-- top tiles -->
+          <div class="row tile_count">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Total Candidates</span>
+              <div class="count_bottom count"><%= @candidate_count %></div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Total Developers</span>
+              <div class="count_bottom count green">78</div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Total Digital Experience</span>
+              <div class="count_bottom count green">20</div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Total Delivery Leads</span>
+              <div class="count_bottom count green">76</div>
+            </div>
+          </div>
+          <!-- /top tiles -->
+
+          <br />
+
+          <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="x_panel tile fixed_height_320 overflow_hidden">
+                <div class="x_title">
+                  <h2>Ohio Valley Region (OVR)</h2>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <table class="" style="width:100%">
+                    <tr>
+                      <th style="width:37%;">
+                        <p></p>
+                      </th>
+                      <th>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                          <p class="">Job Family</p>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                          <p class="">Count (#)</p>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <canvas id="canvas1" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                      </td>
+                      <td>
+                        <table class="tile_info">
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square blue"></i>Developers </p>
+                            </td>
+                            <td>10</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square green"></i>Digital Experience </p>
+                            </td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square purple"></i>Delivery Leads </p>
+                            </td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square" style="color:#284C59;"></i>DevOps </p>
+                            </td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square" style="color:#F22554;"></i>Consulting</p>
+                            </td>
+                            <td>2</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Pillar Technology - Quantum Sprinkles
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Chart.js -->
+    <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.js"></script>
+
+    <!-- jVectorMap -->
+    <script src="js/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="js/maps/jquery-jvectormap-us-aea-en.js"></script>
+    <script src="js/maps/gdp-data.js"></script>
+    <!-- /jVectorMap -->
+
+    <!-- Doughnut Chart -->
+    <script>
+      $(document).ready(function(){
+        var options = {
+          legend: false,
+          responsive: false
+        };
+
+        new Chart(document.getElementById("canvas1"), {
+          type: 'doughnut',
+          tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+          data: {
+            labels: [
+              "DL",
+              "DX",
+              "Dev",
+              "DevOps",
+              "Consulting"
+            ],
+            datasets: [{
+              data: [2, 3, 10, 3, 2],
+              backgroundColor: [
+                "#9B59B6",
+                "#26B99A",
+                "#3498DB",
+				"#284C59", 
+				"#F22554" 
+              ],
+              hoverBackgroundColor: [
+                "#B370CF",
+                "#36CAAB",
+                "#49A9EA",
+                "#284C59", 
+				"#F22554"
+              ]
+            }]
+          },
+          options: options
+        });
+      });
+    </script>
+    <!-- /Doughnut Chart -->
+  </body>
+</html>

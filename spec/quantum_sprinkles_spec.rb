@@ -25,15 +25,17 @@ describe 'Quantum Sprinkles Application' do
     expect(RestClient).to receive(:get) { json_result }
   end
 
-  it 'should show quantum sprinkles' do
+  it 'should have an ok response' do
     get '/'
     expect(last_response).to be_ok
-    expect(last_response.body).to include 'Quantum Sprinkles'
   end
 
   it 'should show the count from Jazz' do
     candidate_count = 2
     get '/'
-    expect(last_response.body).to include "Total: #{candidate_count}"
+    expect(last_response.body.strip).to include "<div class=\"col-md-2 col-sm-4 col-xs-6 tile_stats_count\">
+              <span class=\"count_top\"><i class=\"fa fa-user\"></i> Total Candidates</span>
+              <div class=\"count_bottom count\">#{candidate_count}</div>
+            </div>".strip
   end
 end
