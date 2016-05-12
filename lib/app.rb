@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  'Quantum Sprinkles'
+  erb :index
 end
