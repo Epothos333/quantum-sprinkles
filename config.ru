@@ -1,2 +1,2 @@
 require './lib/app.rb'
-run QuantumSprinkles
+run Sinatra::Application
