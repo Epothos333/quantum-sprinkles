@@ -4,6 +4,6 @@ describe 'Quantum Sprinkles Application' do
   it 'should show quantum sprinkles' do
     get '/'
     expect(last_response).to be_ok
-    expect(last_response.body).to eq 'Quantum Sprinkles'
+    expect(last_response.body).to include 'Quantum Sprinkles'
   end
 end
