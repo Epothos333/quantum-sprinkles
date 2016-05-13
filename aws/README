@@ -8,6 +8,7 @@ management tools.
   b. Include the setup-server.bash script as user data
   c. Add to the existing Quantum Sprinkles security group
 2. After it is up, associate the EIP to the new instance
+  a. The existing EIP is already in Route53
 3. Login and run the deploy-app.bash script
 4. Verify site is online
 
