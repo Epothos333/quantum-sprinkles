@@ -12,11 +12,21 @@ class Candidate
     json_result = RestClient.get("#{API_BASE_URL}applicants?apikey=#{API_KEY}")
     applicants = JSON.parse(json_result)
 
-    artisans_count = applicants.select {|applicant| applicant["job_title"] == "Software Journeyman Developer" || applicant["job_title"] == "Software Craftsman Developer" }.length
+    artisans_count = applicants.select {|applicant| is_artisan(applicant) }.length
 
-    delivery_count = applicants.select {|applicant| applicant["job_title"] == "Delivery Lead"}.length
+    delivery_count = applicants.select {|applicant| is_delivery(applicant) }.length
 
     return {"artisans"=>artisans_count, "delivery"=>delivery_count}
+  end
+
+  def self.is_delivery(applicant)
+    delivery_job_titles = ["Delivery Lead"]
+    delivery_job_titles.include? applicant["job_title"]
+  end
+
+  def self.is_artisan(applicant)
+    artisan_job_titles = ["Software Apprentice Developer", "Software Journeyman Developer", "Software Craftsman Developer"]
+    artisan_job_titles.include? applicant["job_title"]
   end
 
 end

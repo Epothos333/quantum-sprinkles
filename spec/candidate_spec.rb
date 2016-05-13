@@ -21,6 +21,15 @@ describe 'Candidate' do
         "apply_date": "2016-05-12",
         "job_id": "job_20160512180517_FJVQSTNDM7VFEECF",
         "job_title": "Software Journeyman Developer"
+      }, 
+      {
+        "id": "prospect_20160512181803_UFGDGYCOYQPH48X2",
+        "first_name": "George",
+        "last_name": "Washington",
+        "prospect_phone": "2345678910",
+        "apply_date": "2016-05-12",
+        "job_id": "job_20160512181541_YS2XZXNXH0HK4I8Y",
+        "job_title": "Software Apprentice Developer"
       },
       {
         "id": "prospect_20160512182822_TKPWIHRLRGFGEQCU",
@@ -36,7 +45,7 @@ describe 'Candidate' do
 
   it 'should return totals by job family' do
     family_totals = Candidate.get_family_totals
-    expect(family_totals["artisans"]).to eq 2
+    expect(family_totals["artisans"]).to eq 3
     expect(family_totals["delivery"]).to eq 1
   end
 
