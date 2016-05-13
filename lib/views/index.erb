@@ -220,36 +220,18 @@
                       </td>
                       <td>
                         <table class="tile_info">
+
+                          <% @data2_glr.each do |label| %>
+
                           <tr>
                             <td>
-                              <p><i class="fa fa-square blue"></i>Developers </p>
+                              <p><i class="fa fa-square" style="color:<%=label[2]%>;"></i><%=label[0]%> </p>
                             </td>
-                            <td>10</td>
+                            <td><%=label[1]%></td>
                           </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square green"></i>Digital Experience </p>
-                            </td>
-                            <td>3</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square purple"></i>Delivery Leads </p>
-                            </td>
-                            <td>2</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square" style="color:#284C59;"></i>DevOps </p>
-                            </td>
-                            <td>3</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square" style="color:#F22554;"></i>Consulting</p>
-                            </td>
-                            <td>2</td>
-                          </tr>
+
+                          <% end %>
+
                         </table>
                       </td>
                     </tr>
@@ -286,36 +268,18 @@
                       </td>
                       <td>
                         <table class="tile_info">
+                          
+                          <% @data2_ihr.each do |label| %>
+
                           <tr>
                             <td>
-                              <p><i class="fa fa-square blue"></i>Developers </p>
+                              <p><i class="fa fa-square" style="color:<%=label[2]%>;"></i><%=label[0]%> </p>
                             </td>
-                            <td>10</td>
+                            <td><%=label[1]%></td>
                           </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square green"></i>Digital Experience </p>
-                            </td>
-                            <td>3</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square purple"></i>Delivery Leads </p>
-                            </td>
-                            <td>2</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square" style="color:#284C59;"></i>DevOps </p>
-                            </td>
-                            <td>3</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square" style="color:#F22554;"></i>Consulting</p>
-                            </td>
-                            <td>2</td>
-                          </tr>
+
+                          <% end %>
+
                         </table>
                       </td>
                     </tr>
@@ -367,6 +331,14 @@
         var labels = <%=@labels %>;
         var counts = <%=@counts %>;
         var colors = <%=@colors %>;
+
+        var labels_ihr = <%=@labels_ihr %>;
+        var counts_ihr = <%=@counts_ihr %>;
+        var colors_ihr = <%=@colors_ihr %>;
+
+        var labels_glr = <%=@labels_glr %>;
+        var counts_glr = <%=@counts_glr %>;
+        var colors_glr = <%=@colors_glr %>;
         
         new Chart(document.getElementById("canvas1"), {
           type: 'doughnut',
@@ -393,26 +365,14 @@
           responsive: false
         };
 
-        new Chart(document.getElementById("canvas2"), {
+        new Chart(document.getElementById("canvas3"), {
           type: 'doughnut',
           tooltipFillColor: "rgba(51, 51, 51, 0.55)",
           data: {
-            labels: [
-              "DL",
-              "DX",
-              "Dev",
-              "DevOps",
-              "Consulting"
-            ],
+            labels: labels_ihr,
             datasets: [{
-              data: [2, 3, 10, 3, 2],
-              backgroundColor: [
-                "#9B59B6",
-                "#26B99A",
-                "#3498DB",
-        "#284C59", 
-        "#F22554" 
-              ],
+              data: counts_ihr,
+              backgroundColor: colors_ihr,
               hoverBackgroundColor: [
                 "#B370CF",
                 "#36CAAB",
@@ -430,26 +390,14 @@
           responsive: false
         };
 
-        new Chart(document.getElementById("canvas3"), {
+        new Chart(document.getElementById("canvas2"), {
           type: 'doughnut',
           tooltipFillColor: "rgba(51, 51, 51, 0.55)",
           data: {
-            labels: [
-              "DL",
-              "DX",
-              "Dev",
-              "DevOps",
-              "Consulting"
-            ],
+            labels: labels_glr,
             datasets: [{
-              data: [2, 3, 10, 3, 2],
-              backgroundColor: [
-                "#9B59B6",
-                "#26B99A",
-                "#3498DB",
-        "#284C59", 
-        "#F22554" 
-              ],
+              data: counts_glr,
+              backgroundColor: colors_glr,
               hoverBackgroundColor: [
                 "#B370CF",
                 "#36CAAB",
