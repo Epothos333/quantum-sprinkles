@@ -22,7 +22,7 @@ describe 'Quantum Sprinkles Application' do
         "job_id": "job_20160512181011_4ZHR7DSN1ZIHLYSQ",
         "job_title": "Software Journeyman Developer"
     }]'
-    expect(RestClient).to receive(:get) { json_result }
+    expect(RestClient).to receive(:get).at_least(:once) { json_result }
   end
 
   it 'should have an ok response' do

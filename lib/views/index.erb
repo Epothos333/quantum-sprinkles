@@ -140,6 +140,21 @@
                       </td>
                       <td>
                         <table class="tile_info">
+
+                          <% @data2.each do |label| %>
+
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square" style="color:<%=label[2]%>;"></i><%=label[0]%> </p>
+                            </td>
+                            <td><%=label[1]%></td>
+                          </tr>
+
+                          <% end %>
+
+
+
+                          <!--
                           <tr>
                             <td>
                               <p><i class="fa fa-square blue"></i>Developers </p>
@@ -169,7 +184,7 @@
                               <p><i class="fa fa-square" style="color:#F22554;"></i>Consulting</p>
                             </td>
                             <td>2</td>
-                          </tr>
+                          </tr>-->
                         </table>
                       </td>
                     </tr>
@@ -347,38 +362,29 @@
           legend: false,
           responsive: false
         };
-        var data = <%=@data.to_json%>;
-        console.debug(data);
+        //var data = <%=@data.to_json%>;
 
+        var labels = <%=@labels %>;
+        var counts = <%=@counts %>;
+        var colors = <%=@colors %>;
+        
         new Chart(document.getElementById("canvas1"), {
           type: 'doughnut',
           tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-          data:{
-            labels: [
-              "DL",
-              "DX",
-              "Dev",
-              "DevOps",
-              "Consulting"
-            ],
+          data: {
+            labels: labels,
             datasets: [{
-              data: [2, 3, 10, 3, 2],
-              backgroundColor: [
-                "#9B59B6",
-                "#26B99A",
-                "#3498DB",
-        "#284C59", 
-        "#F22554" 
-              ],
+              data: counts,
+              backgroundColor: colors,
               hoverBackgroundColor: [
                 "#B370CF",
                 "#36CAAB",
                 "#49A9EA",
                 "#284C59", 
-        "#F22554"
+            "#F22554"
               ]
             }]
-          }  ,
+          },
           options: options
         });
 
@@ -459,8 +465,4 @@
     </script>
     <!-- /Doughnut Chart -->
   </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> origin/master
