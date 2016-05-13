@@ -1,0 +1,14 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific aliases and functions
+alias qs-deploy="/home/ec2-user/deploy-app.bash"
+alias qs-stop="sudo service quantum-sprinkles stop"
+alias qs-start="sudo service quantum-sprinkles start"
+alias qs-restart="sudo service quantum-sprinkles restart"
+alias qs-status="sudo service quantum-sprinkles status"
+

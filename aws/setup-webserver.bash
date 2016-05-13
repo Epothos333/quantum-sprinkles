@@ -13,7 +13,7 @@ LOG=/home/ec2-user/setup-webserver.log
 touch $LOG
 
 # install ruby and prep for sinatra
-sudo yum install ruby22 ruby22-devel -y >> $LOG 2>&1
+sudo yum install gcc gcc-c++ ruby22 ruby22-devel -y >> $LOG 2>&1
 sudo update-alternatives --set ruby /usr/bin/ruby2.2 >> $LOG 2>&1
 gem install bundler >> $LOG 2>&1
 
