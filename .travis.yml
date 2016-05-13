@@ -1,4 +1,32 @@
 language: ruby
 rvm:
 - 2.2
-
+after_success:
+  - mkdir app
+  - cp -R lib app
+  - cp config.ru app
+  - cp .gemrc app
+  - cp Gemfile* app
+deploy:
+  - provider: s3
+    on:
+      repo: PillarTechnology/quantum-sprinkles
+      branch: master
+    access_key_id: AKIAJ5HZKAORYQF6VG2A
+    secret_access_key:
+      secure: ADfx05dCqG7Ms+CfC0P0bKdjMwqJ9kUaWIO4KseEpD3UwP9R5T9+anpe0KFQZ37xN04uXgBK6cNlb96VrqUL9D3xExf2UMfL+iT3tkHwlutnuEmKbfTzOkqONzRogHDT6omToKOXTt/MQ3ljiumVRRLK7nBTHY+IKSIQuTP/TCQ2xqsEj4tC1fHs4jg4aA9SNRNqoQfd/Pe3zu2OeTzaQGxvgb9QmOVrpGdP41IkeE3o0zjmKO7qOL9D1Xt1ItvQk3j7ZQFdSwm5sFm1WXz8EMAIQFSahRrUBZCDOyuIe/j9p8Tn4ouV+p4bpQQjfwl9dNF54d08YFsiVg4y3B8GAhS1PyJGQwVcKvgsOsyZaqrkfP01ofjsYZNOGj6ibNTem/vU290tIyxCHCehBdieV12Z3GEy6TTfO67kOOWweaMRHVWbtDfPBQYMyLRFDlbAL+wBo9lXUpWOYlInFAd3iYKoDJT8lWYWZnNZIms5LGdfwSgHfhZlnC7nW8R4zR6MqoT3V27RcpVd7k4KkltNeWsdzjXnJk/Gwuaaa34OI5sXnlI4tn3XpklVVHvOSs40pB3fNKpruh/tr4NNobKb8r2nHihstaoawApVFBpzPHbsFlVC9X04ojcg4gUsGnPr4UgHGk/sSZ0RcMUCqAsi49ikf4lHL4+ZEQ53ymjevkY=
+    bucket: quantum-sprinkles
+    upload-dir: deploy
+    skip_cleanup: true
+    local_dir: app
+  - provider: s3
+    on:
+      repo: PillarTechnology/quantum-sprinkles
+      branch: master
+    access_key_id: AKIAJ5HZKAORYQF6VG2A
+    secret_access_key:
+      secure: ADfx05dCqG7Ms+CfC0P0bKdjMwqJ9kUaWIO4KseEpD3UwP9R5T9+anpe0KFQZ37xN04uXgBK6cNlb96VrqUL9D3xExf2UMfL+iT3tkHwlutnuEmKbfTzOkqONzRogHDT6omToKOXTt/MQ3ljiumVRRLK7nBTHY+IKSIQuTP/TCQ2xqsEj4tC1fHs4jg4aA9SNRNqoQfd/Pe3zu2OeTzaQGxvgb9QmOVrpGdP41IkeE3o0zjmKO7qOL9D1Xt1ItvQk3j7ZQFdSwm5sFm1WXz8EMAIQFSahRrUBZCDOyuIe/j9p8Tn4ouV+p4bpQQjfwl9dNF54d08YFsiVg4y3B8GAhS1PyJGQwVcKvgsOsyZaqrkfP01ofjsYZNOGj6ibNTem/vU290tIyxCHCehBdieV12Z3GEy6TTfO67kOOWweaMRHVWbtDfPBQYMyLRFDlbAL+wBo9lXUpWOYlInFAd3iYKoDJT8lWYWZnNZIms5LGdfwSgHfhZlnC7nW8R4zR6MqoT3V27RcpVd7k4KkltNeWsdzjXnJk/Gwuaaa34OI5sXnlI4tn3XpklVVHvOSs40pB3fNKpruh/tr4NNobKb8r2nHihstaoawApVFBpzPHbsFlVC9X04ojcg4gUsGnPr4UgHGk/sSZ0RcMUCqAsi49ikf4lHL4+ZEQ53ymjevkY=
+    bucket: quantum-sprinkles
+    upload-dir: aws
+    skip_cleanup: true
+    local_dir: aws
