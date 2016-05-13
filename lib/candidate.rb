@@ -5,7 +5,7 @@ class Candidate
 
   def self.total
     json_result = RestClient.get("#{API_BASE_URL}applicants?apikey=#{API_KEY}")
-    JSON.parse(json_result).length
+    return JSON.parse(json_result).length
   end
 
   def self.get_family_totals
