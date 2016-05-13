@@ -47,6 +47,9 @@ describe 'Candidate' do
     family_totals = Candidate.get_family_totals
     expect(family_totals["artisans"]).to eq 3
     expect(family_totals["delivery"]).to eq 1
+    expect(family_totals["ux"]).to eq 0
+    expect(family_totals["consultants"]).to eq 0
+    expect(family_totals["devops"]).to eq 0
   end
 
 end

@@ -13,10 +13,13 @@ class Candidate
     applicants = JSON.parse(json_result)
 
     artisans_count = applicants.select {|applicant| is_artisan(applicant) }.length
-
     delivery_count = applicants.select {|applicant| is_delivery(applicant) }.length
 
-    return {"artisans"=>artisans_count, "delivery"=>delivery_count}
+    ux_count = 0
+    consultant_count = 0
+    devops_count = 0
+
+    return {"artisans"=>artisans_count, "delivery"=>delivery_count, "ux"=>ux_count, "consultants"=>consultant_count, "devops"=>devops_count}
   end
 
   def self.is_delivery(applicant)
