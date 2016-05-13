@@ -104,9 +104,8 @@
           </div>
           <!-- /top tiles -->
 
-          <br />
-
           <div class="row">
+<!--             <%= erb :pie %> -->
             <div class="col-md-4 col-sm-4 col-xs-12">
               <div class="x_panel tile fixed_height_320 overflow_hidden">
                 <div class="x_title">
@@ -171,8 +170,140 @@
                 </div>
               </div>
             </div>
+    
+         <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="x_panel tile fixed_height_320 overflow_hidden">
+                <div class="x_title">
+                  <h2>Great Lakes Region (GLR)</h2>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <table class="" style="width:100%">
+                    <tr>
+                      <th style="width:37%;">
+                        <p></p>
+                      </th>
+                      <th>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                          <p class="">Job Family</p>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                          <p class="">Count (#)</p>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <canvas id="canvas2" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                      </td>
+                      <td>
+                        <table class="tile_info">
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square blue"></i>Developers </p>
+                            </td>
+                            <td>10</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square green"></i>Digital Experience </p>
+                            </td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square purple"></i>Delivery Leads </p>
+                            </td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square" style="color:#284C59;"></i>DevOps </p>
+                            </td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square" style="color:#F22554;"></i>Consulting</p>
+                            </td>
+                            <td>2</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="x_panel tile fixed_height_320 overflow_hidden">
+                <div class="x_title">
+                  <h2>Iowa Heartland (IHR)</h2>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <table class="" style="width:100%">
+                    <tr>
+                      <th style="width:37%;">
+                        <p></p>
+                      </th>
+                      <th>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                          <p class="">Job Family</p>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                          <p class="">Count (#)</p>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <canvas id="canvas3" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                      </td>
+                      <td>
+                        <table class="tile_info">
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square blue"></i>Developers </p>
+                            </td>
+                            <td>10</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square green"></i>Digital Experience </p>
+                            </td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square purple"></i>Delivery Leads </p>
+                            </td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square" style="color:#284C59;"></i>DevOps </p>
+                            </td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square" style="color:#F22554;"></i>Consulting</p>
+                            </td>
+                            <td>2</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
         <!-- /page content -->
 
         <!-- footer content -->
@@ -209,8 +340,47 @@
           legend: false,
           responsive: false
         };
+        var data = <%=@data.to_json%>;
+        console.debug(data);
 
         new Chart(document.getElementById("canvas1"), {
+          type: 'doughnut',
+          tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+          data:{
+            labels: [
+              "DL",
+              "DX",
+              "Dev",
+              "DevOps",
+              "Consulting"
+            ],
+            datasets: [{
+              data: [2, 3, 10, 3, 2],
+              backgroundColor: [
+                "#9B59B6",
+                "#26B99A",
+                "#3498DB",
+        "#284C59", 
+        "#F22554" 
+              ],
+              hoverBackgroundColor: [
+                "#B370CF",
+                "#36CAAB",
+                "#49A9EA",
+                "#284C59", 
+        "#F22554"
+              ]
+            }]
+          }  ,
+          options: options
+        });
+
+        var options = {
+          legend: false,
+          responsive: false
+        };
+
+        new Chart(document.getElementById("canvas2"), {
           type: 'doughnut',
           tooltipFillColor: "rgba(51, 51, 51, 0.55)",
           data: {
@@ -227,15 +397,52 @@
                 "#9B59B6",
                 "#26B99A",
                 "#3498DB",
-				"#284C59", 
-				"#F22554" 
+        "#284C59", 
+        "#F22554" 
               ],
               hoverBackgroundColor: [
                 "#B370CF",
                 "#36CAAB",
                 "#49A9EA",
                 "#284C59", 
-				"#F22554"
+        "#F22554"
+              ]
+            }]
+          },
+          options: options
+        });
+
+        var options = {
+          legend: false,
+          responsive: false
+        };
+
+        new Chart(document.getElementById("canvas3"), {
+          type: 'doughnut',
+          tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+          data: {
+            labels: [
+              "DL",
+              "DX",
+              "Dev",
+              "DevOps",
+              "Consulting"
+            ],
+            datasets: [{
+              data: [2, 3, 10, 3, 2],
+              backgroundColor: [
+                "#9B59B6",
+                "#26B99A",
+                "#3498DB",
+        "#284C59", 
+        "#F22554" 
+              ],
+              hoverBackgroundColor: [
+                "#B370CF",
+                "#36CAAB",
+                "#49A9EA",
+                "#284C59", 
+        "#F22554"
               ]
             }]
           },
