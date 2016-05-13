@@ -12,6 +12,15 @@ describe 'Candidate' do
         "apply_date": "2016-05-12",
         "job_id": "job_20160512181416_C2ZAFIUBO61DKFDA",
         "job_title": "Software Craftsman Developer"
+      }, 
+      {
+        "id": "prospect_20160512180935_YLU1DM1F2LVA80XF",
+        "first_name": "Johnny",
+        "last_name": "Appleseed",
+        "prospect_phone": "234-567-8910",
+        "apply_date": "2016-05-12",
+        "job_id": "job_20160512180517_FJVQSTNDM7VFEECF",
+        "job_title": "Software Journeyman Developer"
       },
       {
         "id": "prospect_20160512182822_TKPWIHRLRGFGEQCU",
@@ -20,14 +29,15 @@ describe 'Candidate' do
         "prospect_phone": "2345678910",
         "apply_date": "2016-05-12",
         "job_id": "job_20160512181011_4ZHR7DSN1ZIHLYSQ",
-        "job_title": "Software Journeyman Developer"
+        "job_title": "Delivery Lead"
     }]'
-#    expect(RestClient).to receive(:get) { json_result }
+    expect(RestClient).to receive(:get) { json_result }
   end
 
   it 'should return totals by job family' do
     family_totals = Candidate.get_family_totals
     expect(family_totals["artisans"]).to eq 2
+    expect(family_totals["delivery"]).to eq 1
   end
 
 end
