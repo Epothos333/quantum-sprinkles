@@ -1,0 +1,13 @@
+These are some scripts and such used to take a newly provisioned
+Amazon Linux EC2 instance and get it fully prepared for application
+deployment. It's basically a really primitive provision/configuration
+management tools.
+
+1. Launch a new EC2 instance
+  a. Make sure it is in the Quantum Sprinkles IAM role
+  b. Include the setup-server.bash script as user data
+  c. Add to the existing Quantum Sprinkles security group
+2. After it is up, associate the EIP to the new instance
+3. Login and run the deploy-app.bash script
+4. Verify site is online
+
