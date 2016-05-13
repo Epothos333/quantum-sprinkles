@@ -1,6 +1,6 @@
 class Candidate
 
-  API_KEY = 'D9PNCCQl8ZtdF7zjtGksn2h4x2jZltP5'
+  API_KEY = ENV['JAZZ_KEY']
   API_BASE_URL = 'https://api.resumatorapi.com/v1/'
 
   def self.total
