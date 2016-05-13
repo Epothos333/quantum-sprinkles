@@ -4,6 +4,33 @@ require 'rest-client'
 describe 'Candidate' do
   before(:each) do
     json_result = '[
+    {
+        "id": "prospect_20160513152410_WUEGUJS8TFT8VNTR",
+        "first_name": "Steven",
+        "last_name": "Stevenson",
+        "prospect_phone": "2345678910",
+        "apply_date": "2016-05-13",
+        "job_id": "job_20160513151834_OTSLF01TKSHFNRUF",
+        "job_title": "Executive Consultant"
+      },
+      {
+        "id": "prospect_20160513152237_G5ARPJIUMGPBBVYM",
+        "first_name": "David",
+        "last_name": "Davidson",
+        "prospect_phone": "2345678910",
+        "apply_date": "2016-05-13",
+        "job_id": "job_20160513152056_RGO5OTAXTLSTCTMH",
+        "job_title": "Experience Architect (XA)"
+      },
+      {
+        "id": "prospect_20160513152138_3UEWSVGMHQMRYQAG",
+        "first_name": "Bob",
+        "last_name": "Bobson",
+        "prospect_phone": "2345678910",
+        "apply_date": "2016-05-13",
+        "job_id": "job_20160513152017_CX4GTCWXERY4H6PF",
+        "job_title": "DevOps Journeyman (DevOps Engineer)"
+      },
       {
         "id": "prospect_20160512184407_MYXVB4IKB2IALSSA",
         "first_name": "Alan",
@@ -47,9 +74,9 @@ describe 'Candidate' do
     family_totals = Candidate.get_family_totals
     expect(family_totals["artisans"]).to eq 3
     expect(family_totals["delivery"]).to eq 1
-    expect(family_totals["ux"]).to eq 0
-    expect(family_totals["consultants"]).to eq 0
-    expect(family_totals["devops"]).to eq 0
+    expect(family_totals["ux"]).to eq 1
+    expect(family_totals["consultants"]).to eq 1
+    expect(family_totals["devops"]).to eq 1
   end
 
 end
